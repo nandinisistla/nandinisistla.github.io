@@ -24,7 +24,6 @@
 html { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text-light); }
 
-/* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; align-items: center; justify-content: space-between;
@@ -35,116 +34,52 @@ nav {
 }
 .nav-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); text-decoration: none; }
 .nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
-.nav-links a {
-  color: rgba(200,221,247,0.6); text-decoration: none; font-size: 0.82rem;
-  font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s;
-}
+.nav-links a { color: rgba(200,221,247,0.6); text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
 .nav-links a:hover { color: var(--white); }
 .nav-btn { background: var(--steel-mid) !important; color: var(--white) !important; padding: 0.38rem 1rem; border-radius: 4px; }
 .nav-btn:hover { background: var(--steel-light) !important; }
 
-/* CASE STUDY LAYOUT */
-.cs-wrap {
-  display: grid; grid-template-columns: 1fr 1fr;
-  min-height: 100vh; padding-top: 62px;
-}
-.cs-left {
-  position: sticky; top: 62px; height: calc(100vh - 62px);
-  overflow-y: auto; background: var(--navy2);
-  display: flex; flex-direction: column; gap: 0;
-  scrollbar-width: none;
-}
+.cs-wrap { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; padding-top: 62px; }
+.cs-left { position: sticky; top: 62px; height: calc(100vh - 62px); overflow-y: auto; background: var(--navy2); display: flex; flex-direction: column; scrollbar-width: none; }
 .cs-left::-webkit-scrollbar { display: none; }
 
-.cs-img-block {
-  width: 100%; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  border-bottom: 1px solid rgba(74,128,212,0.12);
-  background: var(--navy2); min-height: 380px;
-}
-.cs-img-block img {
-  width: 100%; height: 100%; object-fit: contain;
-  padding: 2rem; max-height: 500px;
-}
-.cs-img-block.light  { background: #e8f1fc; }
-.cs-img-block.cream  { background: #f0ebe3; }
-.cs-img-block.rivas  { background: #f8f6f2; min-height: 600px; }
+.cs-img-block { width: 100%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(74,128,212,0.12); background: var(--navy2); min-height: 380px; }
+.cs-img-block img { width: 100%; height: 100%; object-fit: contain; padding: 2rem; max-height: 500px; }
+.cs-img-block.light { background: #e8f1fc; }
+.cs-img-block.cream { background: #f5f0eb; }
+.cs-img-block.white { background: #fff; }
+.cs-img-block.rivas { background: #f8f6f2; min-height: 600px; }
 .cs-img-block.rivas img { max-height: 800px; padding: 1rem; }
 
-.cs-right {
-  overflow-y: auto; padding: 4rem 4rem 6rem 3.5rem;
-  background: var(--navy3); height: calc(100vh - 62px);
-}
+.cs-right { overflow-y: auto; padding: 4rem 4rem 6rem 3.5rem; background: var(--navy3); height: calc(100vh - 62px); }
 .cs-right::-webkit-scrollbar { width: 4px; }
 .cs-right::-webkit-scrollbar-track { background: var(--navy2); }
 .cs-right::-webkit-scrollbar-thumb { background: var(--steel-mid); border-radius: 2px; }
 
-.cs-back {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  color: var(--steel-pale); text-decoration: none; font-size: 0.8rem;
-  font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-  margin-bottom: 2rem; transition: gap 0.2s;
-}
+.cs-back { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--steel-pale); text-decoration: none; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem; transition: gap 0.2s; }
 .cs-back:hover { gap: 0.7rem; }
 
-.cs-tag {
-  display: inline-block; background: rgba(74,128,212,0.18); color: var(--steel-pale);
-  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
-  padding: 0.3rem 0.9rem; border-radius: 20px; margin-bottom: 1rem;
-}
-.cs-title {
-  font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem);
-  font-weight: 800; color: var(--white); line-height: 1.15; margin-bottom: 2rem;
-  padding-bottom: 1.5rem; border-bottom: 1px solid rgba(74,128,212,0.2);
-}
+.cs-tag { display: inline-block; background: rgba(74,128,212,0.18); color: var(--steel-pale); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 20px; margin-bottom: 1rem; }
+.cs-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; color: var(--white); line-height: 1.15; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(74,128,212,0.2); }
 .cs-team { font-size: 0.8rem; color: var(--text-mid); margin-bottom: 2rem; letter-spacing: 0.06em; }
 
 .detail-sections { display: flex; flex-direction: column; gap: 2rem; }
-.detail-block {
-  border-left: 3px solid rgba(74,128,212,0.3); padding-left: 1.3rem; transition: border-color 0.2s;
-}
+.detail-block { border-left: 3px solid rgba(74,128,212,0.3); padding-left: 1.3rem; transition: border-color 0.2s; }
 .detail-block:hover { border-left-color: var(--steel-light); }
-.detail-label {
-  font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--steel-pale); font-weight: 700; margin-bottom: 0.5rem;
-}
+.detail-label { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--steel-pale); font-weight: 700; margin-bottom: 0.5rem; }
 .detail-text { font-size: 0.94rem; color: var(--text-body); line-height: 1.82; }
 .detail-text strong { color: var(--ice); font-weight: 600; }
-.detail-quote {
-  background: rgba(26,58,110,0.4); border-left: 3px solid var(--steel-light);
-  padding: 1.1rem 1.4rem; border-radius: 0 8px 8px 0;
-  font-size: 0.92rem; color: var(--ice); font-style: italic;
-  margin: 0.5rem 0; line-height: 1.7;
-}
+.detail-quote { background: rgba(26,58,110,0.4); border-left: 3px solid var(--steel-light); padding: 1.1rem 1.4rem; border-radius: 0 8px 8px 0; font-size: 0.92rem; color: var(--ice); font-style: italic; margin: 0.5rem 0; line-height: 1.7; }
 
-/* RESUME MODAL */
-.resume-modal {
-  position: fixed; inset: 0; z-index: 600;
-  background: rgba(2,6,14,0.95); display: none; align-items: center;
-  justify-content: center; padding: 1.5rem; backdrop-filter: blur(8px);
-}
+.resume-modal { position: fixed; inset: 0; z-index: 600; background: rgba(2,6,14,0.95); display: none; align-items: center; justify-content: center; padding: 1.5rem; backdrop-filter: blur(8px); }
 .resume-modal.open { display: flex; }
-.resume-inner {
-  background: var(--white); border-radius: 16px; overflow: hidden;
-  width: 100%; max-width: 780px; height: 90vh; display: flex; flex-direction: column;
-}
-.resume-toolbar {
-  background: var(--navy); padding: 1rem 1.5rem;
-  display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
-}
+.resume-inner { background: var(--white); border-radius: 16px; overflow: hidden; width: 100%; max-width: 780px; height: 90vh; display: flex; flex-direction: column; }
+.resume-toolbar { background: var(--navy); padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
 .resume-toolbar span { color: rgba(255,255,255,0.75); font-size: 0.88rem; font-weight: 500; }
 .resume-toolbar-btns { display: flex; gap: 0.7rem; align-items: center; }
-.resume-dl {
-  background: var(--steel-mid); color: var(--white); border: none;
-  padding: 0.4rem 1rem; border-radius: 4px; font-size: 0.8rem; font-weight: 500;
-  cursor: pointer; text-decoration: none; transition: background 0.2s;
-}
+.resume-dl { background: var(--steel-mid); color: var(--white); border: none; padding: 0.4rem 1rem; border-radius: 4px; font-size: 0.8rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: background 0.2s; }
 .resume-dl:hover { background: var(--steel-light); }
-.resume-close-btn {
-  background: rgba(255,255,255,0.1); border: none; color: var(--white);
-  width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
-  display: flex; align-items: center; justify-content: center; transition: background 0.2s;
-}
+.resume-close-btn { background: rgba(255,255,255,0.1); border: none; color: var(--white); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
 .resume-close-btn:hover { background: rgba(255,255,255,0.2); }
 .resume-inner iframe { flex: 1; border: none; width: 100%; }
 </style>
@@ -189,7 +124,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeResume();});
     <div class="detail-sections">
       <div class="detail-block">
         <div class="detail-label">01 · The Problem</div>
-        <p class="detail-text">Why did I buy this? The assignment asked me to examine a personal possession, unpack the thought process behind buying it, iterate on that thinking, and explain what my reasoning reveals about design and human behavior. I selected a hand-carved pink stone elephant I purchased from a craftsman in Udaipur, India.</p>
+        <p class="detail-text">Why did I buy this? The assignment asked me to examine a personal possession, unpack the thought process behind buying it, and explain what my reasoning reveals about design and human behavior. I selected a hand-carved pink stone elephant I purchased from a craftsman in Udaipur, India.</p>
       </div>
       <div class="detail-block">
         <div class="detail-label">02 · My Role</div>
@@ -207,7 +142,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeResume();});
       </div>
       <div class="detail-block">
         <div class="detail-label">05 · Challenges</div>
-        <p class="detail-text">The easy route was to describe the object visually. The harder work was pushing past that into emotional honesty: articulating why the pink stone specifically matters, why compact size is important when you live in a New York apartment, and why the elephant-inside-elephant detail makes it irreplaceable to me.</p>
+        <p class="detail-text">The easy route was to describe the object visually. The harder work was pushing past that into emotional honesty: articulating why the pink stone specifically matters, why compact size is important in a New York apartment, and why the elephant-inside-elephant detail makes it irreplaceable to me.</p>
       </div>
       <div class="detail-block">
         <div class="detail-label">06 · How It Affected Me</div>
