@@ -24,7 +24,6 @@
 html { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text-light); }
 
-/* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; align-items: center; justify-content: space-between;
@@ -35,116 +34,52 @@ nav {
 }
 .nav-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); text-decoration: none; }
 .nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
-.nav-links a {
-  color: rgba(200,221,247,0.6); text-decoration: none; font-size: 0.82rem;
-  font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s;
-}
+.nav-links a { color: rgba(200,221,247,0.6); text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
 .nav-links a:hover { color: var(--white); }
 .nav-btn { background: var(--steel-mid) !important; color: var(--white) !important; padding: 0.38rem 1rem; border-radius: 4px; }
 .nav-btn:hover { background: var(--steel-light) !important; }
 
-/* CASE STUDY LAYOUT */
-.cs-wrap {
-  display: grid; grid-template-columns: 1fr 1fr;
-  min-height: 100vh; padding-top: 62px;
-}
-.cs-left {
-  position: sticky; top: 62px; height: calc(100vh - 62px);
-  overflow-y: auto; background: var(--navy2);
-  display: flex; flex-direction: column; gap: 0;
-  scrollbar-width: none;
-}
+.cs-wrap { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; padding-top: 62px; }
+.cs-left { position: sticky; top: 62px; height: calc(100vh - 62px); overflow-y: auto; background: var(--navy2); display: flex; flex-direction: column; scrollbar-width: none; }
 .cs-left::-webkit-scrollbar { display: none; }
 
-.cs-img-block {
-  width: 100%; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  border-bottom: 1px solid rgba(74,128,212,0.12);
-  background: var(--navy2); min-height: 380px;
-}
-.cs-img-block img {
-  width: 100%; height: 100%; object-fit: contain;
-  padding: 2rem; max-height: 500px;
-}
-.cs-img-block.light  { background: #e8f1fc; }
-.cs-img-block.cream  { background: #f0ebe3; }
-.cs-img-block.rivas  { background: #f8f6f2; min-height: 600px; }
+.cs-img-block { width: 100%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(74,128,212,0.12); background: var(--navy2); min-height: 380px; }
+.cs-img-block img { width: 100%; height: 100%; object-fit: contain; padding: 2rem; max-height: 500px; }
+.cs-img-block.light { background: #e8f1fc; }
+.cs-img-block.cream { background: #f5f0eb; }
+.cs-img-block.white { background: #fff; }
+.cs-img-block.rivas { background: #f8f6f2; min-height: 600px; }
 .cs-img-block.rivas img { max-height: 800px; padding: 1rem; }
 
-.cs-right {
-  overflow-y: auto; padding: 4rem 4rem 6rem 3.5rem;
-  background: var(--navy3); height: calc(100vh - 62px);
-}
+.cs-right { overflow-y: auto; padding: 4rem 4rem 6rem 3.5rem; background: var(--navy3); height: calc(100vh - 62px); }
 .cs-right::-webkit-scrollbar { width: 4px; }
 .cs-right::-webkit-scrollbar-track { background: var(--navy2); }
 .cs-right::-webkit-scrollbar-thumb { background: var(--steel-mid); border-radius: 2px; }
 
-.cs-back {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  color: var(--steel-pale); text-decoration: none; font-size: 0.8rem;
-  font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-  margin-bottom: 2rem; transition: gap 0.2s;
-}
+.cs-back { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--steel-pale); text-decoration: none; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem; transition: gap 0.2s; }
 .cs-back:hover { gap: 0.7rem; }
 
-.cs-tag {
-  display: inline-block; background: rgba(74,128,212,0.18); color: var(--steel-pale);
-  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
-  padding: 0.3rem 0.9rem; border-radius: 20px; margin-bottom: 1rem;
-}
-.cs-title {
-  font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem);
-  font-weight: 800; color: var(--white); line-height: 1.15; margin-bottom: 2rem;
-  padding-bottom: 1.5rem; border-bottom: 1px solid rgba(74,128,212,0.2);
-}
+.cs-tag { display: inline-block; background: rgba(74,128,212,0.18); color: var(--steel-pale); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 20px; margin-bottom: 1rem; }
+.cs-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; color: var(--white); line-height: 1.15; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(74,128,212,0.2); }
 .cs-team { font-size: 0.8rem; color: var(--text-mid); margin-bottom: 2rem; letter-spacing: 0.06em; }
 
 .detail-sections { display: flex; flex-direction: column; gap: 2rem; }
-.detail-block {
-  border-left: 3px solid rgba(74,128,212,0.3); padding-left: 1.3rem; transition: border-color 0.2s;
-}
+.detail-block { border-left: 3px solid rgba(74,128,212,0.3); padding-left: 1.3rem; transition: border-color 0.2s; }
 .detail-block:hover { border-left-color: var(--steel-light); }
-.detail-label {
-  font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--steel-pale); font-weight: 700; margin-bottom: 0.5rem;
-}
+.detail-label { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--steel-pale); font-weight: 700; margin-bottom: 0.5rem; }
 .detail-text { font-size: 0.94rem; color: var(--text-body); line-height: 1.82; }
 .detail-text strong { color: var(--ice); font-weight: 600; }
-.detail-quote {
-  background: rgba(26,58,110,0.4); border-left: 3px solid var(--steel-light);
-  padding: 1.1rem 1.4rem; border-radius: 0 8px 8px 0;
-  font-size: 0.92rem; color: var(--ice); font-style: italic;
-  margin: 0.5rem 0; line-height: 1.7;
-}
+.detail-quote { background: rgba(26,58,110,0.4); border-left: 3px solid var(--steel-light); padding: 1.1rem 1.4rem; border-radius: 0 8px 8px 0; font-size: 0.92rem; color: var(--ice); font-style: italic; margin: 0.5rem 0; line-height: 1.7; }
 
-/* RESUME MODAL */
-.resume-modal {
-  position: fixed; inset: 0; z-index: 600;
-  background: rgba(2,6,14,0.95); display: none; align-items: center;
-  justify-content: center; padding: 1.5rem; backdrop-filter: blur(8px);
-}
+.resume-modal { position: fixed; inset: 0; z-index: 600; background: rgba(2,6,14,0.95); display: none; align-items: center; justify-content: center; padding: 1.5rem; backdrop-filter: blur(8px); }
 .resume-modal.open { display: flex; }
-.resume-inner {
-  background: var(--white); border-radius: 16px; overflow: hidden;
-  width: 100%; max-width: 780px; height: 90vh; display: flex; flex-direction: column;
-}
-.resume-toolbar {
-  background: var(--navy); padding: 1rem 1.5rem;
-  display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
-}
+.resume-inner { background: var(--white); border-radius: 16px; overflow: hidden; width: 100%; max-width: 780px; height: 90vh; display: flex; flex-direction: column; }
+.resume-toolbar { background: var(--navy); padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
 .resume-toolbar span { color: rgba(255,255,255,0.75); font-size: 0.88rem; font-weight: 500; }
 .resume-toolbar-btns { display: flex; gap: 0.7rem; align-items: center; }
-.resume-dl {
-  background: var(--steel-mid); color: var(--white); border: none;
-  padding: 0.4rem 1rem; border-radius: 4px; font-size: 0.8rem; font-weight: 500;
-  cursor: pointer; text-decoration: none; transition: background 0.2s;
-}
+.resume-dl { background: var(--steel-mid); color: var(--white); border: none; padding: 0.4rem 1rem; border-radius: 4px; font-size: 0.8rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: background 0.2s; }
 .resume-dl:hover { background: var(--steel-light); }
-.resume-close-btn {
-  background: rgba(255,255,255,0.1); border: none; color: var(--white);
-  width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
-  display: flex; align-items: center; justify-content: center; transition: background 0.2s;
-}
+.resume-close-btn { background: rgba(255,255,255,0.1); border: none; color: var(--white); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
 .resume-close-btn:hover { background: rgba(255,255,255,0.2); }
 .resume-inner iframe { flex: 1; border: none; width: 100%; }
 </style>
@@ -202,7 +137,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeResume();});
         <div class="detail-label">03 · The Solution</div>
         <p class="detail-text">Rivas Flood Protocol is a poster designed for apartment lobbies in vulnerable areas. It has three components:</p>
         <p class="detail-text" style="margin-top:0.8rem;"><strong>Multilingual visual instructions</strong> in English, Spanish, Chinese, French, and Ukrainian, covering 9 steps across three phases: before the storm, during flooding, and after the flood. Icon-based so no reading is required to follow the core sequence.</p>
-        <p class="detail-text" style="margin-top:0.8rem;"><strong>Updatable shelter information on the wall.</strong> The poster has a slot where a printed insert can be placed and swapped out. Before a predicted storm, HPD issues a new insert with the current nearest shelter addresses, dated and signed by the building's designated contact. This keeps shelter information accurate and current without replacing the whole poster, and it works entirely without power or internet.</p>
+        <p class="detail-text" style="margin-top:0.8rem;"><strong>Updatable shelter information on the wall.</strong> The poster has a slot where a printed insert can be placed and swapped out before a predicted storm. HPD issues a new insert with the current nearest shelter addresses, dated and signed by the building's designated contact. This keeps shelter information accurate without replacing the whole poster, and it works entirely without power or internet.</p>
         <p class="detail-text" style="margin-top:0.8rem;"><strong>QR code for real-time updates</strong> linking to a live shelter map and neighborhood group chat. Residents without a smartphone can text their zip code to get the same information via SMS.</p>
       </div>
       <div class="detail-block">
@@ -212,17 +147,15 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeResume();});
       </div>
       <div class="detail-block">
         <div class="detail-label">05 · How Rivas Ensures Fairness</div>
-        <p class="detail-text">The five languages were chosen to reflect the primary languages spoken across Alphabet City's communities: Puerto Rican, Slavic, Chinese, and Francophone residents make up a significant share of those most exposed to flood risk. The poster requires no app, no wifi, and no power, so residents without smartphones or tech familiarity are never excluded from life-saving guidance. It is an open resource available to all residential buildings regardless of income, tenure, or immigration status.</p>
+        <p class="detail-text">The five languages were chosen to reflect the primary languages spoken across Alphabet City's communities. The poster requires no app, no wifi, and no power, so residents without smartphones or tech familiarity are never excluded. It is an open resource available to all residential buildings regardless of income, tenure, or immigration status.</p>
       </div>
       <div class="detail-block">
         <div class="detail-label">06 · Challenges and Designs Not Pursued</div>
-        <p class="detail-text">Early concepts focused on digital-only solutions such as apps and push notifications, but primary research with Sandy survivors made clear this would exclude the most vulnerable people. Building-wide intercom systems and door-to-door leaflets were explored but required ongoing resources most buildings do not have. The poster with a swappable shelter insert was the solution that could be installed once and stay relevant over time without ongoing effort.</p>
+        <p class="detail-text">Early concepts focused on digital-only solutions such as apps and push notifications, but primary research with Sandy survivors showed this would exclude the most vulnerable people. Building-wide intercom systems and door-to-door leaflets were explored but required ongoing resources most buildings do not have. The poster with a swappable shelter insert was the solution that could be installed once and stay relevant over time.</p>
       </div>
       <div class="detail-block">
-        <div class="detail-label">07 · Experience Before and After Rivas</div>
-        <p class="detail-text"><strong>Before Sandy (2012):</strong> Residents were unaware of risks, dismissive of repeated false-alarm warnings, and anxious and unprepared when the real storm arrived.</p>
-        <p class="detail-text" style="margin-top:0.6rem;"><strong>During and after Sandy:</strong> Phones went dead. No water. No posted instructions. Non-English speakers had no recourse. People contacted officials and received auto-replies. They returned home without guidance, damage went undocumented, and the cycle reset.</p>
-        <p class="detail-text" style="margin-top:0.6rem;"><strong>With Rivas:</strong> Residents are passively informed through daily exposure to the poster. Nine icons deliver the protocol at a glance with no reading required under stress. Nearest shelters are on the wall when power and internet are down. After-flood steps guide re-entry, cleaning, and insurance documentation. The cycle does not reset.</p>
+        <div class="detail-label">07 · What Residents Experienced During Sandy</div>
+        <p class="detail-text">Residents were unaware of risks before the storm. Repeated false-alarm warnings had made people dismissive. When the real storm arrived, phones went dead, there was no running water, no posted instructions anywhere, and non-English speakers had no recourse. People contacted officials and received auto-replies. They returned home without guidance, damage went undocumented, and the cycle reset with no lasting change.</p>
       </div>
       <div class="detail-quote">"If there was some guidance like that, that was ubiquitous, I think that would certainly be helpful." — A. Nayar, 39, Chinatown since 2007</div>
       <div class="detail-block">
