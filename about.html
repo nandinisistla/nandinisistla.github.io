@@ -11,6 +11,7 @@
   --rule:#dcd9d3; --panel:#eceae5; --accent:#111110;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;margin:0;padding:0;background:var(--paper)}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
@@ -107,7 +108,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 }
 </style>
 <style>
-.shell{min-height:100vh;display:flex;flex-direction:column}
+.shell{min-height:100vh;width:100%;display:flex;flex-direction:column;background:var(--paper)}
 
 /* project band: side by side, natural heights, staggered */
 .tiles{display:flex;align-items:flex-start;gap:10px;padding:2.4rem 2.2rem 1.6rem;flex-wrap:nowrap}
@@ -126,7 +127,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .intro-sub{margin-top:0;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;
   font-weight:600;color:var(--ink-faint)}
 
-footer{margin-top:2.4rem;border-top:1px solid var(--rule);padding:1.1rem 2.2rem;
+footer{margin-top:auto;border-top:1px solid var(--rule);padding:1.1rem 2.2rem;
   display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
 footer nav.links{display:flex;gap:1.8rem;position:static;padding:0;background:none;border:none;backdrop-filter:none}
 footer a{font-size:0.66rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;color:var(--ink-soft)}
@@ -178,7 +179,7 @@ footer a:hover{color:var(--ink)}
   }
 </style>
 <style>
-.page{max-width:820px;margin:0 auto;padding:4.5rem 2.2rem 0}
+.page{width:100%;max-width:900px;margin:0 auto;padding:4.5rem 2.2rem 3rem}
 .back{font-size:0.64rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;
   color:var(--ink-faint);display:inline-block;margin-bottom:2.4rem}
 .back:hover{color:var(--ink)}
@@ -252,7 +253,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeResume();});
 
 <div class="shell">
   <div class="page">
-    <a class="back" href="https://nandinisistla.wixsite.com/my-site" target="_blank" rel="noopener">&#8592; Home</a>
+    <a class="back" href="index.html">&#8592; Home</a>
     <h1>About</h1>
     <p>I'm a product designer working across research, interface, and physical form.</p>
     <p>Right now I own end-to-end UI and UX at Catalyst Intro, an early-stage platform opening pre-IPO startups to everyday investors.</p>
@@ -284,8 +285,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeResume();});
 
   <footer>
     <nav class="links">
-      <a href="https://nandinisistla.wixsite.com/my-site/about" onclick="return goTop(event,'https://nandinisistla.wixsite.com/my-site/about','/about')">About</a>
-      <a href="https://nandinisistla.wixsite.com/my-site/art" onclick="return goTop(event,'https://nandinisistla.wixsite.com/my-site/art','/art')">Arts &amp; Design</a>
+      <a href="index.html">Home</a>
+      <a href="art.html">Arts &amp; Design</a>
       <a href="https://linkedin.com/in/nandinisistla" target="_blank" rel="noopener">LinkedIn</a>
       <a href="#" onclick="openResume(event)">Resume</a>
       <a href="mailto:ns4054@columbia.edu">Get in touch &#8599;</a>
@@ -312,17 +313,5 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeResume();});
 })();
 </script>
 
-<script>
-/* 1) Ask the Wix page to navigate (same tab) via postMessage.
-   2) If no Velo listener answers within 600ms, fall back to a new tab. */
-function goTop(e, url, path){
-  if(e) e.preventDefault();
-  var done = false;
-  try { window.parent.postMessage({ wixNavigate: path }, "*"); } catch(err){}
-  setTimeout(function(){ if(!done){ window.open(url, "_blank", "noopener"); } }, 600);
-  window.addEventListener("pagehide", function(){ done = true; });
-  return false;
-}
-</script>
 </body>
 </html>
