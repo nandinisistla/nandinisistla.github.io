@@ -339,6 +339,12 @@ h1,h2,h3,h4{font-family:'DM Sans',sans-serif}
 </style>
 
 <style>
+
+/* ---- soft watercolour wash, sits behind everything ---- */
+.wash{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;
+  opacity:.5;mix-blend-mode:multiply}
+.artpage{z-index:1}
+.wall{position:relative;z-index:2}
 .artpage{position:relative;padding:0 0 5rem}
 .artpage h1{margin-bottom:1rem}
 .artpage .lede{font-size:1rem;line-height:1.85;color:var(--ink-soft);max-width:60ch;margin-bottom:3rem}
@@ -380,16 +386,6 @@ h1,h2,h3,h4{font-family:'DM Sans',sans-serif}
 .art:nth-child(3n+2){margin-top:1.6rem}
 .art:nth-child(5n+3){margin-top:2.4rem}
 
-/* ---- tulips around the edges ---- */
-.flora{position:absolute;pointer-events:none;z-index:1}
-.flora.tl{top:-56px;left:-104px;width:230px;transform:rotate(-10deg)}
-.flora.tr{top:-70px;right:-96px;width:262px;transform:scaleX(-1) rotate(-7deg)}
-.flora.ml{top:34%;left:-124px;width:200px;transform:rotate(7deg)}
-.flora.mr{top:56%;right:-116px;width:214px;transform:scaleX(-1) rotate(11deg)}
-.flora.bl{bottom:-30px;left:-100px;width:236px;transform:rotate(5deg)}
-.flora.br{bottom:-14px;right:-92px;width:222px;transform:scaleX(-1) rotate(2deg)}
-@media(max-width:1650px){.flora.ml,.flora.mr{display:none}}
-@media(max-width:1250px){.flora{display:none}}
 </style>
 </head>
 <body>
@@ -432,257 +428,63 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeResume();});
 
   </div>
   <div class="maincol">
+  <svg class="wash" viewBox="0 0 1400 1000" preserveAspectRatio="xMidYMid slice"
+     xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <filter id="bleed" x="-40%" y="-40%" width="180%" height="180%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="4" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <filter id="bleed2" x="-40%" y="-40%" width="180%" height="180%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3" seed="21" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="38" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#bleed)">
+    <!-- petals, top left -->
+    <ellipse cx="120" cy="120" rx="110" ry="86" fill="#e9b7ad" opacity=".55"/>
+    <ellipse cx="212" cy="196" rx="86" ry="70" fill="#f0cf8e" opacity=".5"/>
+    <ellipse cx="58"  cy="236" rx="78" ry="96" fill="#a8bf9c" opacity=".45"/>
+    <!-- top right -->
+    <ellipse cx="1276" cy="96"  rx="122" ry="92" fill="#f2d493" opacity=".5"/>
+    <ellipse cx="1180" cy="204" rx="90"  ry="74" fill="#dfa79c" opacity=".45"/>
+    <ellipse cx="1340" cy="250" rx="80"  ry="102" fill="#9fb894" opacity=".4"/>
+    <!-- lower left -->
+    <ellipse cx="96"   cy="806" rx="126" ry="96" fill="#dfa79c" opacity=".45"/>
+    <ellipse cx="216"  cy="906" rx="96"  ry="78" fill="#b6cba8" opacity=".42"/>
+    <!-- lower right -->
+    <ellipse cx="1300" cy="880" rx="132" ry="100" fill="#eec98a" opacity=".45"/>
+    <ellipse cx="1150" cy="940" rx="92"  ry="72"  fill="#e0b0a6" opacity=".4"/>
+  </g>
+
+  <g filter="url(#bleed2)">
+    <!-- stems and leaves, very soft -->
+    <path d="M150 300 C170 460 150 620 96 780" stroke="#8fae86" stroke-width="26"
+          fill="none" opacity=".38" stroke-linecap="round"/>
+    <path d="M1268 300 C1240 470 1268 640 1310 800" stroke="#93b189" stroke-width="24"
+          fill="none" opacity=".34" stroke-linecap="round"/>
+    <ellipse cx="214" cy="430" rx="92" ry="46" fill="#9cbb92" opacity=".34"
+             transform="rotate(-28 214 430)"/>
+    <ellipse cx="70"  cy="560" rx="84" ry="42" fill="#8db083" opacity=".3"
+             transform="rotate(22 70 560)"/>
+    <ellipse cx="1206" cy="470" rx="94" ry="46" fill="#9cbb92" opacity=".32"
+             transform="rotate(26 1206 470)"/>
+    <ellipse cx="1352" cy="600" rx="82" ry="42" fill="#8db083" opacity=".28"
+             transform="rotate(-20 1352 600)"/>
+    <!-- a couple of faint blooms mid-edge -->
+    <ellipse cx="46"   cy="500" rx="70" ry="58" fill="#e6bcb2" opacity=".3"/>
+    <ellipse cx="1362" cy="420" rx="66" ry="56" fill="#f0d295" opacity=".3"/>
+  </g>
+</svg>
+
   <div class="page artpage">
     <a class="back" href="index.html">&#8592; Home</a>
     <h1>Arts &amp; Design</h1>
     <p class="lede">Paintings and drawings made over the years &mdash; acrylic, oil, watercolour, graphite and ink.</p>
 
-<svg class="flora tl" viewBox="0 0 220 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <g stroke="#2f5133" stroke-width="6" stroke-linecap="round" fill="none">
-    <path d="M108 300 C104 236 100 176 104 108"/>
-    <path d="M105 214 C70 200 46 168 40 132"/>
-    <path d="M107 168 C142 158 168 128 174 94"/>
-    <path d="M104 108 C104 84 100 62 92 44"/>
-    <path d="M104 108 C112 84 124 66 140 52"/>
-  </g>
-  <path d="M40 132 C12 118 8 82 30 60 C56 70 66 108 40 132Z" fill="#37633a"/>
-  <path d="M174 94 C204 82 212 46 192 22 C166 34 152 70 174 94Z" fill="#2f5133"/>
-  <path d="M102 244 C72 236 56 206 66 180 C96 188 112 216 102 244Z" fill="#41703f"/>
-  <path d="M114 272 C144 266 164 240 158 214 C128 220 110 248 114 272Z" fill="#37633a"/>
-  <path d="M60 176 C36 168 26 142 38 122 C60 130 70 156 60 176Z" fill="#4a7b45"/>
-  <!-- hanging yellow tulip, left -->
-  <g transform="translate(92,44)">
-    <path d="M0 0 C-24 4 -35 28 -28 54 C-19 78 -2 86 0 86 C2 86 19 78 28 54 C35 28 24 4 0 0Z" fill="#f3c522"/>
-    <path d="M0 7 C-13 22 -15 54 0 80 C15 54 13 22 0 7Z" fill="#e2ab09" opacity=".5"/>
-    <path d="M-17 13 C-26 33 -22 60 -9 78" stroke="#c69105" stroke-width="3.4" fill="none"/>
-    <path d="M17 13 C26 33 22 60 9 78" stroke="#c69105" stroke-width="3.4" fill="none"/>
-  </g>
-  <!-- hanging yellow tulip, right -->
-  <g transform="translate(140,52) scale(.86)">
-    <path d="M0 0 C-24 4 -35 28 -28 54 C-19 78 -2 86 0 86 C2 86 19 78 28 54 C35 28 24 4 0 0Z" fill="#eebd1c"/>
-    <path d="M0 7 C-13 22 -15 54 0 80 C15 54 13 22 0 7Z" fill="#d9a207" opacity=".5"/>
-    <path d="M-17 13 C-26 33 -22 60 -9 78" stroke="#bd8a04" stroke-width="3.4" fill="none"/>
-    <path d="M17 13 C26 33 22 60 9 78" stroke="#bd8a04" stroke-width="3.4" fill="none"/>
-  </g>
-  <!-- open red tulip -->
-  <g transform="translate(58,196)">
-    <path d="M0 0 C-30 -8 -48 14 -43 40 C-34 62 -11 71 0 71 C11 71 34 62 43 40 C48 14 30 -8 0 0Z" fill="#c04a3e"/>
-    <path d="M-23 5 C-34 26 -27 53 -7 66 L0 68 L0 -2Z" fill="#a83a30"/>
-    <path d="M23 5 C34 26 27 53 7 66 L0 68 L0 -2Z" fill="#d2604f"/>
-    <path d="M0 -2 C-9 20 -9 48 0 68 C9 48 9 20 0 -2Z" fill="#b4433a" opacity=".65"/>
-  </g>
-  <!-- second red tulip, lower -->
-  <g transform="translate(126,238) scale(.8)">
-    <path d="M0 0 C-30 -8 -48 14 -43 40 C-34 62 -11 71 0 71 C11 71 34 62 43 40 C48 14 30 -8 0 0Z" fill="#b8443a"/>
-    <path d="M-23 5 C-34 26 -27 53 -7 66 L0 68 L0 -2Z" fill="#9e352c"/>
-    <path d="M23 5 C34 26 27 53 7 66 L0 68 L0 -2Z" fill="#c8584a"/>
-  </g>
-</svg>
-<svg class="flora tr" viewBox="0 0 220 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <g stroke="#2f5133" stroke-width="6" stroke-linecap="round" fill="none">
-    <path d="M108 300 C104 236 100 176 104 108"/>
-    <path d="M105 214 C70 200 46 168 40 132"/>
-    <path d="M107 168 C142 158 168 128 174 94"/>
-    <path d="M104 108 C104 84 100 62 92 44"/>
-    <path d="M104 108 C112 84 124 66 140 52"/>
-  </g>
-  <path d="M40 132 C12 118 8 82 30 60 C56 70 66 108 40 132Z" fill="#37633a"/>
-  <path d="M174 94 C204 82 212 46 192 22 C166 34 152 70 174 94Z" fill="#2f5133"/>
-  <path d="M102 244 C72 236 56 206 66 180 C96 188 112 216 102 244Z" fill="#41703f"/>
-  <path d="M114 272 C144 266 164 240 158 214 C128 220 110 248 114 272Z" fill="#37633a"/>
-  <path d="M60 176 C36 168 26 142 38 122 C60 130 70 156 60 176Z" fill="#4a7b45"/>
-  <!-- hanging yellow tulip, left -->
-  <g transform="translate(92,44)">
-    <path d="M0 0 C-24 4 -35 28 -28 54 C-19 78 -2 86 0 86 C2 86 19 78 28 54 C35 28 24 4 0 0Z" fill="#f3c522"/>
-    <path d="M0 7 C-13 22 -15 54 0 80 C15 54 13 22 0 7Z" fill="#e2ab09" opacity=".5"/>
-    <path d="M-17 13 C-26 33 -22 60 -9 78" stroke="#c69105" stroke-width="3.4" fill="none"/>
-    <path d="M17 13 C26 33 22 60 9 78" stroke="#c69105" stroke-width="3.4" fill="none"/>
-  </g>
-  <!-- hanging yellow tulip, right -->
-  <g transform="translate(140,52) scale(.86)">
-    <path d="M0 0 C-24 4 -35 28 -28 54 C-19 78 -2 86 0 86 C2 86 19 78 28 54 C35 28 24 4 0 0Z" fill="#eebd1c"/>
-    <path d="M0 7 C-13 22 -15 54 0 80 C15 54 13 22 0 7Z" fill="#d9a207" opacity=".5"/>
-    <path d="M-17 13 C-26 33 -22 60 -9 78" stroke="#bd8a04" stroke-width="3.4" fill="none"/>
-    <path d="M17 13 C26 33 22 60 9 78" stroke="#bd8a04" stroke-width="3.4" fill="none"/>
-  </g>
-  <!-- open red tulip -->
-  <g transform="translate(58,196)">
-    <path d="M0 0 C-30 -8 -48 14 -43 40 C-34 62 -11 71 0 71 C11 71 34 62 43 40 C48 14 30 -8 0 0Z" fill="#c04a3e"/>
-    <path d="M-23 5 C-34 26 -27 53 -7 66 L0 68 L0 -2Z" fill="#a83a30"/>
-    <path d="M23 5 C34 26 27 53 7 66 L0 68 L0 -2Z" fill="#d2604f"/>
-    <path d="M0 -2 C-9 20 -9 48 0 68 C9 48 9 20 0 -2Z" fill="#b4433a" opacity=".65"/>
-  </g>
-  <!-- second red tulip, lower -->
-  <g transform="translate(126,238) scale(.8)">
-    <path d="M0 0 C-30 -8 -48 14 -43 40 C-34 62 -11 71 0 71 C11 71 34 62 43 40 C48 14 30 -8 0 0Z" fill="#b8443a"/>
-    <path d="M-23 5 C-34 26 -27 53 -7 66 L0 68 L0 -2Z" fill="#9e352c"/>
-    <path d="M23 5 C34 26 27 53 7 66 L0 68 L0 -2Z" fill="#c8584a"/>
-  </g>
-</svg>
-<svg class="flora ml" viewBox="0 0 220 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <g stroke="#2f5133" stroke-width="6" stroke-linecap="round" fill="none">
-    <path d="M108 300 C104 236 100 176 104 108"/>
-    <path d="M105 214 C70 200 46 168 40 132"/>
-    <path d="M107 168 C142 158 168 128 174 94"/>
-    <path d="M104 108 C104 84 100 62 92 44"/>
-    <path d="M104 108 C112 84 124 66 140 52"/>
-  </g>
-  <path d="M40 132 C12 118 8 82 30 60 C56 70 66 108 40 132Z" fill="#37633a"/>
-  <path d="M174 94 C204 82 212 46 192 22 C166 34 152 70 174 94Z" fill="#2f5133"/>
-  <path d="M102 244 C72 236 56 206 66 180 C96 188 112 216 102 244Z" fill="#41703f"/>
-  <path d="M114 272 C144 266 164 240 158 214 C128 220 110 248 114 272Z" fill="#37633a"/>
-  <path d="M60 176 C36 168 26 142 38 122 C60 130 70 156 60 176Z" fill="#4a7b45"/>
-  <!-- hanging yellow tulip, left -->
-  <g transform="translate(92,44)">
-    <path d="M0 0 C-24 4 -35 28 -28 54 C-19 78 -2 86 0 86 C2 86 19 78 28 54 C35 28 24 4 0 0Z" fill="#f3c522"/>
-    <path d="M0 7 C-13 22 -15 54 0 80 C15 54 13 22 0 7Z" fill="#e2ab09" opacity=".5"/>
-    <path d="M-17 13 C-26 33 -22 60 -9 78" stroke="#c69105" stroke-width="3.4" fill="none"/>
-    <path d="M17 13 C26 33 22 60 9 78" stroke="#c69105" stroke-width="3.4" fill="none"/>
-  </g>
-  <!-- hanging yellow tulip, right -->
-  <g transform="translate(140,52) scale(.86)">
-    <path d="M0 0 C-24 4 -35 28 -28 54 C-19 78 -2 86 0 86 C2 86 19 78 28 54 C35 28 24 4 0 0Z" fill="#eebd1c"/>
-    <path d="M0 7 C-13 22 -15 54 0 80 C15 54 13 22 0 7Z" fill="#d9a207" opacity=".5"/>
-    <path d="M-17 13 C-26 33 -22 60 -9 78" stroke="#bd8a04" stroke-width="3.4" fill="none"/>
-    <path d="M17 13 C26 33 22 60 9 78" stroke="#bd8a04" stroke-width="3.4" fill="none"/>
-  </g>
-  <!-- open red tulip -->
-  <g transform="translate(58,196)">
-    <path d="M0 0 C-30 -8 -48 14 -43 40 C-34 62 -11 71 0 71 C11 71 34 62 43 40 C48 14 30 -8 0 0Z" fill="#c04a3e"/>
-    <path d="M-23 5 C-34 26 -27 53 -7 66 L0 68 L0 -2Z" fill="#a83a30"/>
-    <path d="M23 5 C34 26 27 53 7 66 L0 68 L0 -2Z" fill="#d2604f"/>
-    <path d="M0 -2 C-9 20 -9 48 0 68 C9 48 9 20 0 -2Z" fill="#b4433a" opacity=".65"/>
-  </g>
-  <!-- second red tulip, lower -->
-  <g transform="translate(126,238) scale(.8)">
-    <path d="M0 0 C-30 -8 -48 14 -43 40 C-34 62 -11 71 0 71 C11 71 34 62 43 40 C48 14 30 -8 0 0Z" fill="#b8443a"/>
-    <path d="M-23 5 C-34 26 -27 53 -7 66 L0 68 L0 -2Z" fill="#9e352c"/>
-    <path d="M23 5 C34 26 27 53 7 66 L0 68 L0 -2Z" fill="#c8584a"/>
-  </g>
-</svg>
-<svg class="flora mr" viewBox="0 0 220 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <g stroke="#2f5133" stroke-width="6" stroke-linecap="round" fill="none">
-    <path d="M108 300 C104 236 100 176 104 108"/>
-    <path d="M105 214 C70 200 46 168 40 132"/>
-    <path d="M107 168 C142 158 168 128 174 94"/>
-    <path d="M104 108 C104 84 100 62 92 44"/>
-    <path d="M104 108 C112 84 124 66 140 52"/>
-  </g>
-  <path d="M40 132 C12 118 8 82 30 60 C56 70 66 108 40 132Z" fill="#37633a"/>
-  <path d="M174 94 C204 82 212 46 192 22 C166 34 152 70 174 94Z" fill="#2f5133"/>
-  <path d="M102 244 C72 236 56 206 66 180 C96 188 112 216 102 244Z" fill="#41703f"/>
-  <path d="M114 272 C144 266 164 240 158 214 C128 220 110 248 114 272Z" fill="#37633a"/>
-  <path d="M60 176 C36 168 26 142 38 122 C60 130 70 156 60 176Z" fill="#4a7b45"/>
-  <!-- hanging yellow tulip, left -->
-  <g transform="translate(92,44)">
-    <path d="M0 0 C-24 4 -35 28 -28 54 C-19 78 -2 86 0 86 C2 86 19 78 28 54 C35 28 24 4 0 0Z" fill="#f3c522"/>
-    <path d="M0 7 C-13 22 -15 54 0 80 C15 54 13 22 0 7Z" fill="#e2ab09" opacity=".5"/>
-    <path d="M-17 13 C-26 33 -22 60 -9 78" stroke="#c69105" stroke-width="3.4" fill="none"/>
-    <path d="M17 13 C26 33 22 60 9 78" stroke="#c69105" stroke-width="3.4" fill="none"/>
-  </g>
-  <!-- hanging yellow tulip, right -->
-  <g transform="translate(140,52) scale(.86)">
-    <path d="M0 0 C-24 4 -35 28 -28 54 C-19 78 -2 86 0 86 C2 86 19 78 28 54 C35 28 24 4 0 0Z" fill="#eebd1c"/>
-    <path d="M0 7 C-13 22 -15 54 0 80 C15 54 13 22 0 7Z" fill="#d9a207" opacity=".5"/>
-    <path d="M-17 13 C-26 33 -22 60 -9 78" stroke="#bd8a04" stroke-width="3.4" fill="none"/>
-    <path d="M17 13 C26 33 22 60 9 78" stroke="#bd8a04" stroke-width="3.4" fill="none"/>
-  </g>
-  <!-- open red tulip -->
-  <g transform="translate(58,196)">
-    <path d="M0 0 C-30 -8 -48 14 -43 40 C-34 62 -11 71 0 71 C11 71 34 62 43 40 C48 14 30 -8 0 0Z" fill="#c04a3e"/>
-    <path d="M-23 5 C-34 26 -27 53 -7 66 L0 68 L0 -2Z" fill="#a83a30"/>
-    <path d="M23 5 C34 26 27 53 7 66 L0 68 L0 -2Z" fill="#d2604f"/>
-    <path d="M0 -2 C-9 20 -9 48 0 68 C9 48 9 20 0 -2Z" fill="#b4433a" opacity=".65"/>
-  </g>
-  <!-- second red tulip, lower -->
-  <g transform="translate(126,238) scale(.8)">
-    <path d="M0 0 C-30 -8 -48 14 -43 40 C-34 62 -11 71 0 71 C11 71 34 62 43 40 C48 14 30 -8 0 0Z" fill="#b8443a"/>
-    <path d="M-23 5 C-34 26 -27 53 -7 66 L0 68 L0 -2Z" fill="#9e352c"/>
-    <path d="M23 5 C34 26 27 53 7 66 L0 68 L0 -2Z" fill="#c8584a"/>
-  </g>
-</svg>
-<svg class="flora bl" viewBox="0 0 220 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <g stroke="#2f5133" stroke-width="6" stroke-linecap="round" fill="none">
-    <path d="M108 300 C104 236 100 176 104 108"/>
-    <path d="M105 214 C70 200 46 168 40 132"/>
-    <path d="M107 168 C142 158 168 128 174 94"/>
-    <path d="M104 108 C104 84 100 62 92 44"/>
-    <path d="M104 108 C112 84 124 66 140 52"/>
-  </g>
-  <path d="M40 132 C12 118 8 82 30 60 C56 70 66 108 40 132Z" fill="#37633a"/>
-  <path d="M174 94 C204 82 212 46 192 22 C166 34 152 70 174 94Z" fill="#2f5133"/>
-  <path d="M102 244 C72 236 56 206 66 180 C96 188 112 216 102 244Z" fill="#41703f"/>
-  <path d="M114 272 C144 266 164 240 158 214 C128 220 110 248 114 272Z" fill="#37633a"/>
-  <path d="M60 176 C36 168 26 142 38 122 C60 130 70 156 60 176Z" fill="#4a7b45"/>
-  <!-- hanging yellow tulip, left -->
-  <g transform="translate(92,44)">
-    <path d="M0 0 C-24 4 -35 28 -28 54 C-19 78 -2 86 0 86 C2 86 19 78 28 54 C35 28 24 4 0 0Z" fill="#f3c522"/>
-    <path d="M0 7 C-13 22 -15 54 0 80 C15 54 13 22 0 7Z" fill="#e2ab09" opacity=".5"/>
-    <path d="M-17 13 C-26 33 -22 60 -9 78" stroke="#c69105" stroke-width="3.4" fill="none"/>
-    <path d="M17 13 C26 33 22 60 9 78" stroke="#c69105" stroke-width="3.4" fill="none"/>
-  </g>
-  <!-- hanging yellow tulip, right -->
-  <g transform="translate(140,52) scale(.86)">
-    <path d="M0 0 C-24 4 -35 28 -28 54 C-19 78 -2 86 0 86 C2 86 19 78 28 54 C35 28 24 4 0 0Z" fill="#eebd1c"/>
-    <path d="M0 7 C-13 22 -15 54 0 80 C15 54 13 22 0 7Z" fill="#d9a207" opacity=".5"/>
-    <path d="M-17 13 C-26 33 -22 60 -9 78" stroke="#bd8a04" stroke-width="3.4" fill="none"/>
-    <path d="M17 13 C26 33 22 60 9 78" stroke="#bd8a04" stroke-width="3.4" fill="none"/>
-  </g>
-  <!-- open red tulip -->
-  <g transform="translate(58,196)">
-    <path d="M0 0 C-30 -8 -48 14 -43 40 C-34 62 -11 71 0 71 C11 71 34 62 43 40 C48 14 30 -8 0 0Z" fill="#c04a3e"/>
-    <path d="M-23 5 C-34 26 -27 53 -7 66 L0 68 L0 -2Z" fill="#a83a30"/>
-    <path d="M23 5 C34 26 27 53 7 66 L0 68 L0 -2Z" fill="#d2604f"/>
-    <path d="M0 -2 C-9 20 -9 48 0 68 C9 48 9 20 0 -2Z" fill="#b4433a" opacity=".65"/>
-  </g>
-  <!-- second red tulip, lower -->
-  <g transform="translate(126,238) scale(.8)">
-    <path d="M0 0 C-30 -8 -48 14 -43 40 C-34 62 -11 71 0 71 C11 71 34 62 43 40 C48 14 30 -8 0 0Z" fill="#b8443a"/>
-    <path d="M-23 5 C-34 26 -27 53 -7 66 L0 68 L0 -2Z" fill="#9e352c"/>
-    <path d="M23 5 C34 26 27 53 7 66 L0 68 L0 -2Z" fill="#c8584a"/>
-  </g>
-</svg>
-<svg class="flora br" viewBox="0 0 220 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <g stroke="#2f5133" stroke-width="6" stroke-linecap="round" fill="none">
-    <path d="M108 300 C104 236 100 176 104 108"/>
-    <path d="M105 214 C70 200 46 168 40 132"/>
-    <path d="M107 168 C142 158 168 128 174 94"/>
-    <path d="M104 108 C104 84 100 62 92 44"/>
-    <path d="M104 108 C112 84 124 66 140 52"/>
-  </g>
-  <path d="M40 132 C12 118 8 82 30 60 C56 70 66 108 40 132Z" fill="#37633a"/>
-  <path d="M174 94 C204 82 212 46 192 22 C166 34 152 70 174 94Z" fill="#2f5133"/>
-  <path d="M102 244 C72 236 56 206 66 180 C96 188 112 216 102 244Z" fill="#41703f"/>
-  <path d="M114 272 C144 266 164 240 158 214 C128 220 110 248 114 272Z" fill="#37633a"/>
-  <path d="M60 176 C36 168 26 142 38 122 C60 130 70 156 60 176Z" fill="#4a7b45"/>
-  <!-- hanging yellow tulip, left -->
-  <g transform="translate(92,44)">
-    <path d="M0 0 C-24 4 -35 28 -28 54 C-19 78 -2 86 0 86 C2 86 19 78 28 54 C35 28 24 4 0 0Z" fill="#f3c522"/>
-    <path d="M0 7 C-13 22 -15 54 0 80 C15 54 13 22 0 7Z" fill="#e2ab09" opacity=".5"/>
-    <path d="M-17 13 C-26 33 -22 60 -9 78" stroke="#c69105" stroke-width="3.4" fill="none"/>
-    <path d="M17 13 C26 33 22 60 9 78" stroke="#c69105" stroke-width="3.4" fill="none"/>
-  </g>
-  <!-- hanging yellow tulip, right -->
-  <g transform="translate(140,52) scale(.86)">
-    <path d="M0 0 C-24 4 -35 28 -28 54 C-19 78 -2 86 0 86 C2 86 19 78 28 54 C35 28 24 4 0 0Z" fill="#eebd1c"/>
-    <path d="M0 7 C-13 22 -15 54 0 80 C15 54 13 22 0 7Z" fill="#d9a207" opacity=".5"/>
-    <path d="M-17 13 C-26 33 -22 60 -9 78" stroke="#bd8a04" stroke-width="3.4" fill="none"/>
-    <path d="M17 13 C26 33 22 60 9 78" stroke="#bd8a04" stroke-width="3.4" fill="none"/>
-  </g>
-  <!-- open red tulip -->
-  <g transform="translate(58,196)">
-    <path d="M0 0 C-30 -8 -48 14 -43 40 C-34 62 -11 71 0 71 C11 71 34 62 43 40 C48 14 30 -8 0 0Z" fill="#c04a3e"/>
-    <path d="M-23 5 C-34 26 -27 53 -7 66 L0 68 L0 -2Z" fill="#a83a30"/>
-    <path d="M23 5 C34 26 27 53 7 66 L0 68 L0 -2Z" fill="#d2604f"/>
-    <path d="M0 -2 C-9 20 -9 48 0 68 C9 48 9 20 0 -2Z" fill="#b4433a" opacity=".65"/>
-  </g>
-  <!-- second red tulip, lower -->
-  <g transform="translate(126,238) scale(.8)">
-    <path d="M0 0 C-30 -8 -48 14 -43 40 C-34 62 -11 71 0 71 C11 71 34 62 43 40 C48 14 30 -8 0 0Z" fill="#b8443a"/>
-    <path d="M-23 5 C-34 26 -27 53 -7 66 L0 68 L0 -2Z" fill="#9e352c"/>
-    <path d="M23 5 C34 26 27 53 7 66 L0 68 L0 -2Z" fill="#c8584a"/>
-  </g>
-</svg>
 
 
     <div class="wall">
