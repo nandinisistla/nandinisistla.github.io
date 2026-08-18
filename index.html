@@ -11,6 +11,7 @@
   --rule:#dcd9d3; --panel:#eceae5; --accent:#111110;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;margin:0;padding:0;background:var(--paper)}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
@@ -107,7 +108,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 }
 </style>
 <style>
-.shell{min-height:100vh;display:flex;flex-direction:column}
+.shell{min-height:100vh;width:100%;display:flex;flex-direction:column;background:var(--paper)}
 
 /* project band: side by side, natural heights, staggered */
 .tiles{display:flex;align-items:flex-start;gap:10px;padding:2.4rem 2.2rem 1.6rem;flex-wrap:nowrap}
@@ -233,8 +234,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeResume();});
     <p class="line"><b>Product Design @ Catalyst Intro</b><br>Based in NYC</p>
 
     <div class="jump">
-      <a href="https://nandinisistla.wixsite.com/my-site/about" onclick="return goTop(event,'https://nandinisistla.wixsite.com/my-site/about','/about')">About <i>&#8599;</i></a>
-      <a href="https://nandinisistla.wixsite.com/my-site/art" onclick="return goTop(event,'https://nandinisistla.wixsite.com/my-site/art','/art')">Arts &amp; Design <i>&#8599;</i></a>
+      <a href="about.html">About <i>&#8599;</i></a>
+      <a href="art.html">Arts &amp; Design <i>&#8599;</i></a>
     </div>
 
     <div class="icons">
@@ -247,8 +248,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeResume();});
 
   <footer>
     <nav class="links">
-      <a href="https://nandinisistla.wixsite.com/my-site/about" onclick="return goTop(event,'https://nandinisistla.wixsite.com/my-site/about','/about')">About</a>
-      <a href="https://nandinisistla.wixsite.com/my-site/art" onclick="return goTop(event,'https://nandinisistla.wixsite.com/my-site/art','/art')">Arts &amp; Design</a>
+      <a href="about.html">About</a>
+      <a href="art.html">Arts &amp; Design</a>
       <a href="https://linkedin.com/in/nandinisistla" target="_blank">LinkedIn</a>
       <a href="#" onclick="openResume(event)">Resume</a>
       <a href="mailto:ns4054@columbia.edu">Get in touch &#8599;</a>
@@ -257,17 +258,5 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeResume();});
 </div>
 
 
-<script>
-/* 1) Ask the Wix page to navigate (same tab) via postMessage.
-   2) If no Velo listener answers within 600ms, fall back to a new tab. */
-function goTop(e, url, path){
-  if(e) e.preventDefault();
-  var done = false;
-  try { window.parent.postMessage({ wixNavigate: path }, "*"); } catch(err){}
-  setTimeout(function(){ if(!done){ window.open(url, "_blank", "noopener"); } }, 600);
-  window.addEventListener("pagehide", function(){ done = true; });
-  return false;
-}
-</script>
 </body>
 </html>
