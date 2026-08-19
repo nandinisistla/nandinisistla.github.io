@@ -409,15 +409,6 @@ h1,h2,h3,h4{font-family:'DM Sans',sans-serif}
 .gold .mat{background:none;padding:0;box-shadow:none;border-radius:0}
 .gold img{width:100%;height:auto;display:block;border-radius:14px}
 
-/* hover, and tap on touch: bring the piece to the front */
-.art:hover,.art:focus-visible{z-index:40}
-.art:hover .gold,.art:focus-visible .gold{transform:rotate(0deg) translate(0,-8px) scale(1.03);
-  box-shadow:0 26px 55px rgba(24,20,14,.30),0 3px 10px rgba(24,20,14,.16)}
-.art.front{z-index:50}
-.art.front .gold{transform:rotate(0deg) translate(0,-8px) scale(1.04);
-  box-shadow:0 28px 60px rgba(24,20,14,.32),0 3px 10px rgba(24,20,14,.16)}
-.art:focus{outline:none}
-
 .art:nth-child(1){z-index:3}
 .art:nth-child(1) .gold{transform:rotate(-3.2deg) translate(6px,0px)}
 .art:nth-child(2){z-index:5;margin-top:2.2rem}
@@ -440,6 +431,17 @@ h1,h2,h3,h4{font-family:'DM Sans',sans-serif}
 .art:nth-child(10) .gold{transform:rotate(2.8deg) translate(5px,-6px)}
 .art:nth-child(11){z-index:6;margin-top:1.4rem}
 .art:nth-child(11) .gold{transform:rotate(-3.6deg) translate(-9px,8px)}
+
+/* whichever piece the pointer is on lifts clear of its neighbours */
+.wall .art:hover,.wall .art:focus-visible{z-index:40}
+.wall .art:hover .gold,.wall .art:focus-visible .gold{
+  transform:rotate(0deg) translate(0,-8px) scale(1.03);
+  box-shadow:0 26px 55px rgba(24,20,14,.30),0 3px 10px rgba(24,20,14,.16)}
+.wall .art.front{z-index:50}
+.wall .art.front .gold{transform:rotate(0deg) translate(0,-8px) scale(1.04);
+  box-shadow:0 28px 60px rgba(24,20,14,.32),0 3px 10px rgba(24,20,14,.16)}
+.wall .art:focus{outline:none}
+
 </style>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
