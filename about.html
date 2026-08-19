@@ -562,6 +562,15 @@ body{color:#fff}
 @media(prefers-reduced-motion:reduce){
   .bm-a{animation:none;transform:none;opacity:1}}
 </style>
+<style>
+/* a real felt-tip stroke: wobbly edges, thin at the ends, denser where
+   the pen went over twice */
+.hl{background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 62' preserveAspectRatio='none'><path d='M -6.0 13.7 Q -3.0 16.5 0.0 13.2 Q 18.8 12.5 37.5 12.7 Q 56.2 10.9 75.0 9.4 Q 93.8 8.9 112.5 11.0 Q 131.2 8.0 150.0 10.7 Q 168.8 8.9 187.5 12.0 Q 206.2 11.6 225.0 12.8 Q 243.8 12.8 262.5 8.4 Q 281.2 6.7 300.0 8.0 Q 304.0 6.3 308.0 17.1 L 308.0 47.3 Q 304.0 45.5 300.0 49.0 Q 281.2 48.7 262.5 49.0 Q 243.8 47.7 225.0 54.6 Q 206.2 51.5 187.5 54.8 Q 168.8 57.0 150.0 50.3 Q 131.2 50.6 112.5 53.4 Q 93.8 54.3 75.0 51.7 Q 56.2 49.6 37.5 48.8 Q 18.8 52.0 0.0 53.7 Q -3.0 56.0 -6.0 45.6 Z' fill='%23C9F227' fill-opacity='0.44'/><path d='M -2.0 26.4 Q -1.0 26.2 0.0 21.3 Q 18.8 20.4 37.5 16.7 Q 56.2 16.1 75.0 16.8 Q 93.8 18.9 112.5 20.7 Q 131.2 20.9 150.0 20.2 Q 168.8 20.5 187.5 19.9 Q 206.2 18.5 225.0 18.0 Q 243.8 15.5 262.5 19.6 Q 281.2 18.6 300.0 19.6 Q 307.0 17.7 314.0 23.4 L 314.0 47.5 Q 307.0 47.6 300.0 52.6 Q 281.2 55.2 262.5 53.8 Q 243.8 54.7 225.0 54.7 Q 206.2 53.1 187.5 55.2 Q 168.8 57.3 150.0 57.3 Q 131.2 58.9 112.5 57.6 Q 93.8 58.8 75.0 56.2 Q 56.2 58.3 37.5 54.4 Q 18.8 55.8 0.0 54.6 Q -1.0 56.1 -2.0 47.2 Z' fill='%23C9F227' fill-opacity='0.30'/><path d='M -10.0 11.8 Q -5.0 13.0 0.0 8.2 Q 18.8 8.6 37.5 7.4 Q 56.2 6.6 75.0 8.5 Q 93.8 6.4 112.5 8.6 Q 131.2 10.2 150.0 6.1 Q 168.8 6.0 187.5 5.9 Q 206.2 6.8 225.0 9.5 Q 243.8 11.2 262.5 6.9 Q 281.2 7.9 300.0 6.8 Q 301.0 8.7 302.0 14.2 L 302.0 23.1 Q 301.0 22.6 300.0 30.8 Q 281.2 32.1 262.5 31.1 Q 243.8 30.8 225.0 30.1 Q 206.2 32.0 187.5 31.6 Q 168.8 33.3 150.0 30.6 Q 131.2 28.8 112.5 28.5 Q 93.8 26.9 75.0 30.6 Q 56.2 29.4 37.5 29.9 Q 18.8 31.9 0.0 31.5 Q -5.0 31.2 -10.0 23.9 Z' fill='%23C9F227' fill-opacity='0.20'/><path d='M -14.0 42.0 Q -7.0 42.9 0.0 36.6 Q 18.8 37.8 37.5 37.6 Q 56.2 39.0 75.0 36.8 Q 93.8 35.3 112.5 36.4 Q 131.2 36.8 150.0 37.6 Q 168.8 38.3 187.5 39.5 Q 206.2 39.5 225.0 39.1 Q 243.8 37.9 262.5 39.0 Q 281.2 38.9 300.0 37.0 Q 303.0 35.5 306.0 42.1 L 306.0 48.5 Q 303.0 50.0 300.0 52.3 Q 281.2 53.6 262.5 51.9 Q 243.8 52.1 225.0 54.1 Q 206.2 53.4 187.5 54.1 Q 168.8 55.6 150.0 54.2 Q 131.2 54.4 112.5 54.5 Q 93.8 55.9 75.0 52.0 Q 56.2 53.2 37.5 51.6 Q 18.8 51.6 0.0 51.8 Q -7.0 51.5 -14.0 46.2 Z' fill='%23C9F227' fill-opacity='0.16'/></svg>");
+  background-color:transparent;
+  background-size:100% 84%;background-position:0 96%;background-repeat:no-repeat;
+  color:#0d2547;padding:0.04em 0.2em;margin:0;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone}
+</style>
 </head>
 <body>
 <div class="resume-modal" id="resume-modal" onclick="if(event.target===this)closeResume()">
@@ -607,7 +616,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeResume();});
   <div class="page">
     <a class="back" href="index.html">&#8592; Home</a>
     <h1>About</h1>
-    <p>As a product designer, I sit at the intersection of UI/UX, graphic design, and physical form, building experiences rooted in empathy and rigorous iteration. Currently, I am the Lead Product Designer at Catalyst Intro, an early-stage platform opening pre-IPO startup investing to everyday investors, where I am designing the mobile app from end to end. Alongside my industry work, I am pursuing studies at Columbia University, focusing on Human-Centered Design and Innovation, UI/UX, and Product Design and Management.</p>
+    <p>As a product designer, I sit at the intersection of UI/UX, graphic design, and physical form, building experiences rooted in <mark class="hl">empathy</mark> and rigorous <mark class="hl">iteration</mark>. Currently, I am the Lead Product Designer at Catalyst Intro, an early-stage platform opening pre-IPO startup investing to everyday investors, where I am designing the mobile app from end to end. Alongside my industry work, I am pursuing studies at Columbia University, focusing on Human-Centered Design and Innovation, UI/UX, and Product Design and Management.</p>
     <p>Outside of that, I make art and take far too many pictures of sunsets, ducks, and anything else cute enough to justify stopping for. I also run a food page, where I photograph the meal for aesthetics, take one bite, and announce that I'm full, <span class="hehe">hehe</span>.</p>
 
     <div class="peek">
